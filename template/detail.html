@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Vlog</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding: 40px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .content {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .author {
+            font-size: 1.2em;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .vlog-body p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            font-size: 0.9em;
+            color: #555;
+            text-align: left;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="content">
+        <header>
+            <h1>{{ blogData.blog_title }}</h1>
+        </header>
+
+        <div class="author">
+            <p>by <strong>{{ blogData.blog_name }}</strong></p>
+        </div>
+
+        <div class="vlog-body">
+            <p>{{ blogData.blog_body }}</p>
+        </div>
+
+        <footer>
+            <p>&copy; Ankit Pande</p>
+        </footer>
+    </div>
+
+</body>
+</html>

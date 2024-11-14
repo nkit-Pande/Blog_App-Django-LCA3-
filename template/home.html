@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Simple Blog</title>
+    <style>
+
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        background-color: #f4f4f4;
+        color: #333;
+        overflow-y: scroll; 
+        scrollbar-width: none; 
+      }
+
+      body::-webkit-scrollbar {
+        display: none;
+      }
+
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #333;
+        color: #fff;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      header a {
+        text-decoration: none;
+      }
+
+      header button {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        font-size: 1em;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        font-weight: bold;
+      }
+
+      header button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+      }
+
+      main {
+        margin-top: 20px;
+      }
+
+      article {
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+      }
+
+      article:hover {
+        transform: scale(1.02);
+      }
+
+      article h2 {
+        color: #333;
+        margin-top: 0;
+        font-size: 1.5em;
+      }
+
+      article .post-date {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 10px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to My Blog</h1>
+      <a href="{% url 'register' %}">
+        <button>
+          <span style="font-size: 1.5em; font-weight: bold;">+</span> Add Blog
+        </button>
+      </a>
+    </header>
+
+    <main>
+      {% for n in blogData %}
+        <article>
+          <a href="{% url 'detail' n.id %}" style="text-decoration: none; color: inherit;">
+            <h2>{{ n.blog_title }}</h2>
+            <p class="post-date">{{ n.blog_name }}</p>
+          </a>
+        </article>
+      {% endfor %}
+    </main>
+
+    <footer>
+      <p>&copy; Ankit Pande</p>
+    </footer>
+  </body>
+</html>
